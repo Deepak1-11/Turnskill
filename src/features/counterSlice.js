@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-
+// createAsyncThunk,
 const initialState = {
   value: 0,
   status: 'idle',

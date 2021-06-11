@@ -2,7 +2,6 @@ import './Homepage.css';
 
 function Homepage() {
 
-    {/*Follow BEM while writing CSS*/}
 
     return (
         <div className="homepage">
