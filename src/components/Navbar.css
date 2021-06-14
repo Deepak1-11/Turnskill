@@ -1,7 +1,8 @@
+
 .navbar{
     display:flex;
     justify-content: space-evenly;
-    background-color: rgb(245, 108, 53);
+      background-color:#f35f45;
     height:60px;
     
 }
@@ -22,28 +23,20 @@ ul{
     justify-content: center;
     align-items: center;
     width:100%;
+    color:white;
 }
 
  li{
     list-style-type: none;
     margin:0px 15px 0px 15px;
+    color:white;
     
 }
 
 a{
     text-decoration: none;
+    color:white;
     
 }
 
-.navbar__theme{
-
-    width:100px;
-    height:30px;
-    padding:10px;
-    margin:auto 0px auto 0px;
-    border:none;
-    border-radius:20px;
-    background-color: black;
-    color:white;
-}
 

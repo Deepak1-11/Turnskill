@@ -1,23 +1,71 @@
 import './App.css';
-import {BrowserRouter as Router , Link ,Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router ,Route, Switch} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Courses from './components/Courses';
 import Onetwoone from './components/Onetwoone';
-import Login from './components/Login';
 import LiveSessions from './components/LiveSessions';
+import Signup from './components/Signup';
+import SignIn from './components/SignIn';
+import Newuser from './components/Newuser';
+import { useEffect } from 'react';
+import { auth } from './components/Firebase';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn, logOut, selectUser } from './features/userSlice';
+import { selectTheme } from './features/themeSlice';
+
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  const user = useSelector(selectUser);
+  const theme = useSelector(selectTheme);
+
+ useEffect(()=>{
+
+    auth.onAuthStateChanged((authUser)=>{
+
+      if(authUser)
+      {
+
+        dispatch(logIn({
+
+          uid:authUser.uid,
+          photo:authUser.profileURL,
+          email:authUser.email,
+          displayName:authUser.displayName,
+          
+        }));
+
+      }
+
+      else{  
+
+        dispatch(logOut());
+
+      
+      };
+
+    });
+
+
+   
+
+  },[]);
+  
  
   return (
-    <div className="App">
+
+   <div className="App">
+    <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color}} >
 
     <Router>
     <Navbar/>
     <Switch>
     <Route exact path="/">
 
-    <Homepage/>
+      {user?<Homepage/>:<Newuser/>}
     
     </Route>
     <Route path="/courses">
@@ -33,18 +81,27 @@ function App() {
     <Onetwoone/>
     </Route>
 
-    <Route path="/sign-in">
+    <Route path="/register">
+ <Signup/>
 
-  <Login/>
-    
     </Route>
+    <Route path="/login">
+    <SignIn/>
+
+    </Route>
+    
  
      </Switch>
 
      </Router>
    
     </div>
+    </div>
+
+
+    
   );
 }
+
 
 export default App;

@@ -1,8 +1,66 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counterSlice';
 
-export const store = configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
+import userReducer from '../features/userSlice';
+import themeReducer from '../features/themeSlice';
+
+import {createStore , combineReducers}  from 'redux';
+
+function saveToLocalStorage(state){
+
+
+  try{
+
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('state',serializedState)
+
+  }catch(e){
+
+    console.log(e);
+
+
+
+
+  }
+}
+
+function loadFromLocalStorage(){
+
+try{
+  const serializedState = localStorage.getItem('state');
+  if(serializedState==null)
+  return undefined;
+
+  return JSON.parse(serializedState);
+
+}catch(e){
+  console.log(e);
+
+  return undefined;
+
+
+}
+
+
+}
+
+
+const persistedState = loadFromLocalStorage();
+
+const rootReducer =  combineReducers({
+ 
+
+  user:userReducer,
+  theme:themeReducer
+  
+  
 });
+
+
+export  const store = createStore(
+  rootReducer,
+  persistedState,
+)
+
+store.subscribe(()=>saveToLocalStorage(store.getState()))
+
+
+
