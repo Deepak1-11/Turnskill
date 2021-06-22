@@ -26,21 +26,21 @@ function Sidebar() {
                         </div>
                         <div className="menu">
                             <h6>MENU</h6>
-                            <div >
+                            <div  >
                                 <span><MdPublic /></span>
-                               <Link to="/"> <span>Dashboard</span></Link>
+                               <Link style={{color:"black"}} to="/"> <span>Dashboard</span></Link>
                             </div>
-                            <div>
+                            <div >
                                 <span><MdVideocam /></span>
-                               <Link to ="/live-sessions"> <span>Live Sessions</span></Link>
+                               <Link style={{color:"black"}} to ="/live-sessions"> <span>Live Sessions</span></Link>
                             </div>
-                            <div>
+                            <div >
                                 <span><MdAirplay /></span>
-                                <Link to="/courses"><span>My Courses</span></Link>
+                                <Link  style={{color:"black"}} to="/courses"><span>My Courses</span></Link>
                             </div>
-                            <div>
+                            <div >
                                 <span><MdComment /></span>
-                               <Link to="/1-1"> <span>1-1 Sessions</span></Link>
+                               <Link style={{color:"black"}}  to="/1-1"> <span>1-1 Sessions</span></Link>
                             </div>
                             <div>
                                 <span><MdAndroid /></span>
@@ -50,15 +50,15 @@ function Sidebar() {
                         </div>
                         <div className="settings">
                             <h6>SETTINGS</h6>
-                            <div>
+                            <div >
                                 <span><MdPublic /></span>
-                            <Link to="/"><span>Dashboard</span></Link>
+                            <Link style={{color:"black"}} to="/"><span>Dashboard</span></Link>
                             </div>
-                            <div>
+                            <div >
                                 <span><MdPhotoCamera /></span>
                                 <span>Photos</span>
                             </div>
-                            <div>
+                            <div >
                                 <span><MdAirplay /></span>
                                 <span>Stats</span>
                             </div>

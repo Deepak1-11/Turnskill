@@ -4,7 +4,8 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Nanum Gothic", sans-serif;
-    background-color: white;
+    background-color:white;
+    color:black;
     display:flex;
 
 }
@@ -90,4 +91,9 @@
 .settings > div >span:nth-child(2){
     font-size: 0.8rem;
     font-weight: 600;
+}
+
+.sidebar__link{
+    color:black;
+
 }
