@@ -13,9 +13,10 @@ import { useEffect } from 'react';
 import { auth } from './components/Firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut, selectUser } from './features/userSlice';
-import { selectTheme } from './features/themeSlice';
+import { darkTheme, lightTheme, selectTheme } from './features/themeSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from "react-bootstrap";
+import Button from 'react-bootstrap/Button'
 
 
 function App() {
@@ -24,6 +25,20 @@ function App() {
 
   const user = useSelector(selectUser);
   const theme = useSelector(selectTheme);
+
+
+
+
+ 
+
+  const changeThemetoDark =()=>{
+
+      dispatch(darkTheme());
+  }
+  const changeThemetoLight =()=>{
+
+      dispatch(lightTheme());
+  }
 
  useEffect(()=>{
 
@@ -65,8 +80,16 @@ function App() {
    <div className="App">
     <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color,}} >
 
+    <div className="theme__toggler">
+    {theme.theme_type==="dark"?  <Button onClick={changeThemetoLight} className="navbar__theme btn btn-sm btn-dark ">Light Theme</Button>:
+    
+    <Button onClick={changeThemetoDark} className="navbar__theme btn btn-sm btn-dark ">Dark Theme</Button>
+   }
+    
+    </div>
 
-    <Container fluid>
+
+  <Container fluid>
     <Row>
   
     <Router>
@@ -85,12 +108,6 @@ function App() {
 
     </Route>
 
-    <Route path="/home">
-
-    <Col lg={10} style={{padding:"0"}}>
-    <Homepage/>
-    </Col>
-    </Route>
     <Route path="/courses">
 
     <Col lg={10} style={{padding:"0"}}>
