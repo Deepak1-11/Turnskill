@@ -7,6 +7,7 @@ import Onetwoone from './components/Onetwoone';
 import LiveSessions from './components/LiveSessions';
 import Signup from './components/Signup';
 import SignIn from './components/SignIn';
+import Sidebar from './components/Sidebar';
 import Newuser from './components/Newuser';
 import { useEffect } from 'react';
 import { auth } from './components/Firebase';
@@ -60,12 +61,17 @@ function App() {
    <div className="App">
     <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color}} >
 
+
+
     <Router>
-    <Navbar/>
+    {/* <Navbar/> */}
+    <Sidebar />
     <Switch>
     <Route exact path="/">
 
-      {user?<Homepage/>:<Newuser/>}
+      {/* {user?<Homepage/>:<Newuser/>} */}
+
+      <Homepage />
     
     </Route>
     <Route path="/courses">
