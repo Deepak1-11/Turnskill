@@ -1,5 +1,6 @@
+
 .registerform{
-    width:50%;
+    width:100%;
     margin-left:20px;
     margin-right:20px;
 }
@@ -10,4 +11,5 @@
  
     border-radius:10px;
     padding:4px;
+    width:100%;
 }

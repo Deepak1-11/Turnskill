@@ -7,8 +7,15 @@ import { MdAirplay } from "react-icons/md";
 import { MdPublic } from "react-icons/md";
 import { MdAndroid } from "react-icons/md";
 import { MdVideocam } from "react-icons/md";
+import {Link} from 'react-router-dom';
+import { auth } from './Firebase';
 
 function Sidebar() {
+
+    const handleSignOut = ()=>{
+
+        auth.signOut();
+    }
     return (
         <div className="main">
         <Container fluid>
@@ -21,19 +28,19 @@ function Sidebar() {
                             <h6>MENU</h6>
                             <div >
                                 <span><MdPublic /></span>
-                                <span>Dashboard</span>
+                               <Link to="/"> <span>Dashboard</span></Link>
                             </div>
                             <div>
                                 <span><MdVideocam /></span>
-                                <span>Live Sessions</span>
+                               <Link to ="/live-sessions"> <span>Live Sessions</span></Link>
                             </div>
                             <div>
                                 <span><MdAirplay /></span>
-                                <span>My Courses</span>
+                                <Link to="/courses"><span>My Courses</span></Link>
                             </div>
                             <div>
                                 <span><MdComment /></span>
-                                <span>1-1 Sessions</span>
+                               <Link to="/1-1"> <span>1-1 Sessions</span></Link>
                             </div>
                             <div>
                                 <span><MdAndroid /></span>
@@ -45,7 +52,7 @@ function Sidebar() {
                             <h6>SETTINGS</h6>
                             <div>
                                 <span><MdPublic /></span>
-                                <span>Dashboard</span>
+                            <Link to="/"><span>Dashboard</span></Link>
                             </div>
                             <div>
                                 <span><MdPhotoCamera /></span>
@@ -55,6 +62,11 @@ function Sidebar() {
                                 <span><MdAirplay /></span>
                                 <span>Stats</span>
                             </div>
+
+                            <div>
+                           
+                            <span onClick={handleSignOut}>SignOut</span>
+                        </div>
                         </div>
                     </Col>
 

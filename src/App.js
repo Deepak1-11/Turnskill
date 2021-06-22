@@ -60,53 +60,79 @@ function App() {
  
   return (
 
+   
+
    <div className="App">
     <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color,}} >
 
 
-      <Container fluid>
-        <Row>
+    <Container fluid>
+    <Row>
+  
     <Router>
-      <Col  lg={2} style={{padding:"0"}}>
-    {/* <Navbar/> */}
-    <Sidebar />
-    </Col >
 
-    <Col lg={10} style={{padding:"0"}}>
+    {user? <Col  lg={2} style={{padding:"0"}}>
+  
+          <Sidebar />
+    </Col >:""}
+
     <Switch>
     <Route exact path="/">
 
-      {/* {user?<Homepage/>:<Newuser/>} */}
+       {user?<Col lg={10} style={{padding:"0"}}>
+       <Homepage/>
+       </Col>:<Newuser/>}
 
-      <Homepage />
-    
+    </Route>
+
+    <Route path="/home">
+
+    <Col lg={10} style={{padding:"0"}}>
+    <Homepage/>
+    </Col>
     </Route>
     <Route path="/courses">
+
+    <Col lg={10} style={{padding:"0"}}>
     <Courses/>
+    </Col>
     </Route>
     <Route exact path="/live-sessions">
+    <Col lg={10} style={{padding:"0"}}>
 
     <LiveSessions/>
+
+    </Col>
     
     </Route>
 
     <Route path="/1-1">
+    <Col lg={10} style={{padding:"0"}}>
     <Onetwoone/>
+
+    </Col>
     </Route>
 
     <Route path="/register">
+
+    <Col lg={10} style={{padding:"0"}}>
  <Signup/>
+ </Col>
 
     </Route>
     <Route path="/login">
+
+    <Col lg={10} style={{padding:"0"}}>
     <SignIn/>
+
+    </Col>
 
     </Route>
     
  
      </Switch>
 
-     </Col>
+
      </Router>
      </Row>
      </Container>
