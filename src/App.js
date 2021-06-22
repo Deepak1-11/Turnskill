@@ -7,12 +7,15 @@ import Onetwoone from './components/Onetwoone';
 import LiveSessions from './components/LiveSessions';
 import Signup from './components/Signup';
 import SignIn from './components/SignIn';
+import Sidebar from './components/Sidebar';
 import Newuser from './components/Newuser';
 import { useEffect } from 'react';
 import { auth } from './components/Firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut, selectUser } from './features/userSlice';
 import { selectTheme } from './features/themeSlice';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Col, Container, Row } from "react-bootstrap";
 
 
 function App() {
@@ -58,14 +61,24 @@ function App() {
   return (
 
    <div className="App">
-    <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color}} >
+    <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color,}} >
 
+
+      <Container fluid>
+        <Row>
     <Router>
-    <Navbar/>
+      <Col  lg={2} style={{padding:"0"}}>
+    {/* <Navbar/> */}
+    <Sidebar />
+    </Col >
+
+    <Col lg={10} style={{padding:"0"}}>
     <Switch>
     <Route exact path="/">
 
-      {user?<Homepage/>:<Newuser/>}
+      {/* {user?<Homepage/>:<Newuser/>} */}
+
+      <Homepage />
     
     </Route>
     <Route path="/courses">
@@ -93,8 +106,10 @@ function App() {
  
      </Switch>
 
+     </Col>
      </Router>
-   
+     </Row>
+     </Container>
     </div>
     </div>
 
