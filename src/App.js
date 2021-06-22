@@ -14,6 +14,8 @@ import { auth } from './components/Firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut, selectUser } from './features/userSlice';
 import { selectTheme } from './features/themeSlice';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Col, Container, Row } from "react-bootstrap";
 
 
 function App() {
@@ -59,13 +61,18 @@ function App() {
   return (
 
    <div className="App">
-    <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color}} >
+    <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color,}} >
 
 
-
+      <Container fluid>
+        <Row>
     <Router>
+      <Col  lg={2} style={{padding:"0"}}>
     {/* <Navbar/> */}
     <Sidebar />
+    </Col >
+
+    <Col lg={10} style={{padding:"0"}}>
     <Switch>
     <Route exact path="/">
 
@@ -99,8 +106,10 @@ function App() {
  
      </Switch>
 
+     </Col>
      </Router>
-   
+     </Row>
+     </Container>
     </div>
     </div>
 
