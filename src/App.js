@@ -13,9 +13,10 @@ import { auth } from './components/Firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { logIn, logOut, selectUser } from './features/userSlice';
 import { selectTheme } from './features/themeSlice';
+import VideoPage from './components/videoComponents/VideoPage';
 
 
-function App() {
+function App(props) {
 
   const dispatch = useDispatch();
 
@@ -59,42 +60,19 @@ function App() {
 
    <div className="App">
     <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color}} >
-
-    <Router>
-    <Navbar/>
-    <Switch>
-    <Route exact path="/">
-
-      {user?<Homepage/>:<Newuser/>}
-    
-    </Route>
-    <Route path="/courses">
-    <Courses/>
-    </Route>
-    <Route exact path="/live-sessions">
-
-    <LiveSessions/>
-    
-    </Route>
-
-    <Route path="/1-1">
-    <Onetwoone/>
-    </Route>
-
-    <Route path="/register">
- <Signup/>
-
-    </Route>
-    <Route path="/login">
-    <SignIn/>
-
-    </Route>
-    
- 
-     </Switch>
-
-     </Router>
-   
+      <Router>
+        <Navbar/>
+        <Switch>
+          <Route exact path="/">{user?<Homepage/>:<Newuser/>}</Route>
+          <Route path="/courses"><Courses/></Route>
+          {/* <Route exact path="/live-sessions"><LiveSessions {...props}/></Route> */}
+          <Route path="/live-sessions" component={LiveSessions}/> 
+          <Route path="/1-1"><Onetwoone/></Route>
+          <Route path="/register"><Signup/></Route>
+          <Route path="/login"><SignIn/></Route>
+          <Route path="/videodisplay" component={VideoPage}/>  
+        </Switch>
+      </Router>   
     </div>
     </div>
 
