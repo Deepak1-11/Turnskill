@@ -9,15 +9,21 @@ import { useHistory } from 'react-router-dom';
 
 
 
+
 function Loginform() {
 
 const history = useHistory();
 
-     const handleLogIn = async(values)=>{
 
-       await auth.signInWithEmailAndPassword(values.email,values.password)
-         .then(history.push("/"))
+     const handleLogIn = (values)=>{
+
+        auth.signInWithEmailAndPassword(values.email,values.password)
+        .then(history.push("/"))
+      
+         
         .catch(err=>alert(err.message));
+
+      
       
      }
 
