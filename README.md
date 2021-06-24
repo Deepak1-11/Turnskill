@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
+## Extra installations
+Following are the `names` that you will require to install to run the project (incase not already installed):
+
+1. @material-ui/icons
+2. @material-ui/core
+3. react-player
+4. screenfull
+5. react-uuid
+
+To install them write command as `npm install libname` where libname is the names given above.
+
 ## Available Scripts
 
 In the project directory, you can run:
