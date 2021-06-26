@@ -18,7 +18,7 @@ function Registerform() {
      const handleClick = async(values)=>{
 
         
-        console.log(values);
+      
 
         await auth.createUserWithEmailAndPassword(values.email,values.password)
         .then( history.push("/"))
@@ -35,11 +35,7 @@ function Registerform() {
         
         .catch(err=>alert(err.message));
 
-        dispatch(logIn({
-            name:values.firstName,
-            email:values.email
-        }))
-
+       
 
        
 
@@ -69,6 +65,8 @@ function Registerform() {
       })
 
     return (
+
+     
         <Formik className="registerform"
         initialValues={{
           firstName: '',
@@ -97,6 +95,7 @@ function Registerform() {
           </div>
         )}
       </Formik>
+    
     )
 }
 

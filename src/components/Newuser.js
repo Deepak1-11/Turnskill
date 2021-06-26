@@ -9,7 +9,7 @@ function Newuser() {
     return (
 
 
-          <div style={{minHeight:"90vh"}}>
+          <div  className="newuser" >
           <Jumbotron  style={{height:"80vh",width:"80vw",marginLeft:"auto",marginRight:"auto",marginTop:"30px"}}>
           
 
