@@ -17,6 +17,7 @@ import { darkTheme, lightTheme, selectTheme } from './features/themeSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
+import VideoPage from './components/videoComponents/VideoPage';
 
 
 function App() {
@@ -143,6 +144,15 @@ function App() {
     <SignIn/>
 
     </Col>
+
+    </Route>
+
+    <Route path="/videodisplay">
+
+    <Col lg={10} style={{padding:"0"}}>
+   <VideoPage/>
+
+     </Col>
 
     </Route>
     
