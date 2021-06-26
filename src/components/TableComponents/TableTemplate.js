@@ -21,10 +21,7 @@ function createData(name, code) {
   
   return { name, code};
 }
-// const code = ()=>{
-// //<NavLink to="/videodisplay">Video Display Page</NavLink>
-//   return  'Click Here';
-// };
+
 
 const rows = [
 
