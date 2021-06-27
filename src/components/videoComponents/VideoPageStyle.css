@@ -1,14 +1,17 @@
 .videoPage-titlebar, .videoPage-tabpanel{
-    background: rgb(198, 74, 82);
-}
+
+    background: rgb(53, 53, 53);
 
 .videobox-titlebar{
     margin-top: 30px;
-    background-color: #e57373;
-    color: maroon;
+
+    background-color: rgb(51, 51, 51);
+    color: white;
+
     
 }
 
 .videoPage-tabpanel-section{
-    background-color:rgb(236, 215, 215);;
-}
+
+    background-color:rgb(244, 242, 242);
+  }

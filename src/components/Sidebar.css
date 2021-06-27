@@ -36,11 +36,13 @@
     width:80%;
     height:5vh;
     display:flex;
+    justify-content: stretch;
+    padding-left: 10px;
     align-items: center;
     cursor: pointer;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
 .menu > div:hover{
@@ -76,7 +78,7 @@
     cursor: pointer;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 .settings > div >span:nth-child(1){
     padding-left: 15%;

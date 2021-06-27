@@ -9,32 +9,37 @@ import TableTemplate from './TableComponents/TableTemplate';
 
 const useStyles = makeStyles({
     
-    abRoot: {
-      backgroundColor: "#9a0036",
-    
-    },
+
+  root: {
+    width:"100%",
+    height:"50px",
+    paddingTop:"10px",
+    fontSize:" 2em",
+    fontStyle:"bold"
+  
+  },
   });
-
-
-const LiveSessions = (props) => {
-  const classes = useStyles();
-  return (
-     <>
+const LiveSessions = ()  => {
+    const classes = useStyles();
+    return (
+       <>
+          
         
+    
       
-  <AppBar position="fixed" className={classes.abRoot}>
+    
+    <Container maxWidth="md">
+    
     <Toolbar>
-      <Typography variant="h6">Attended LiveSessions</Typography>
+        <Typography className={classes.root} variant="h6">Attended Live Sessions</Typography>
 
-    </Toolbar>
-  </AppBar>
-  <Toolbar />
-  <br/>
-  <Container maxWidth="md">
-  <TableTemplate {...props}  />
-  </Container>
-     </>
-  );
+      </Toolbar>
+ 
+    <TableTemplate  />
+    </Container>
+       </>
+    );
 }
+ 
 
 export default LiveSessions;

@@ -13,12 +13,13 @@ import TablePage from './TablePage';
 import screenfull from 'screenfull';
 import uuid from "react-uuid";
 import PlayerControls from './PlayerControls';
-import ListOfBookmark from './bookmarkComponents/ListOfBookmark';
-import EditBookmark from './bookmarkComponents/EditBookmark';
-import './bookmarkComponents/BookmarkStyle.css';
-import './VideoPageStyle.css';
 
-/***************************************************************************************** */
+import ListOfBookmark from '../bookmarkComponents/ListOfBookmark';
+import EditBookmark from '../bookmarkComponents/EditBookmark';
+import '../bookmarkComponents/BookmarkStyle.css';
+import './VideoPageStyle.css';
+import FeedbackForm from '../FormTemplate/Feedback';
+
 
 const useStyles = makeStyles({
   playerWrapper: {
@@ -26,9 +27,15 @@ const useStyles = makeStyles({
     height: "440px",
     position: "relative",
   },
-  abRoot: {
-    backgroundColor: "#9a0036"
-    
+
+  root: {
+    width:"100%",
+    height:"50px",
+    paddingTop:"10px",
+    fontSize:" 2em",
+    fontStyle:"bold"
+  
+
   },
 });
 
@@ -281,15 +288,13 @@ function VideoPage() {
   /***************************************************************************************** */
   return <>
 
-    <AppBar position="fixed" className={classes.abRoot}>
-      <Toolbar>
-        <Typography variant="h6">Turnskill LiveSession Video Display Page</Typography>
+
+    <Container maxWidth="md">
+    <Toolbar>
+        <Typography className={classes.root} variant="h6">Attended Live Session</Typography>
 
       </Toolbar>
-    </AppBar>
-    <Toolbar />
-    <Container maxWidth="md">
-      
+
       <Toolbar className="videobox-titlebar">
         <Typography variant="h6">Live Session Name</Typography>
 
@@ -355,7 +360,11 @@ function VideoPage() {
             <Tab label="Transcribe" {...a11yProps(0)} />
             <Tab label="Translate" {...a11yProps(1)} />
             <Tab label="Notes" {...a11yProps(2)} />
-            <Tab label="Details" {...a11yProps(3)} />
+
+            <Tab label="Feedback" {...a11yProps(3)} />
+            <Tab label="Details" {...a11yProps(4)} />
+            
+
           </Tabs>
         </AppBar>
         <div  className="videoPage-tabpanel-section">
@@ -380,7 +389,12 @@ function VideoPage() {
         </TabPanel>
 
         <TabPanel value={value} index={3}>
-                Details about session video
+
+                <FeedbackForm/>
+        </TabPanel>
+        <TabPanel value={value} index={4}>
+                Following are the details of the video
+
                 <TablePage />
         </TabPanel>
         </div>
