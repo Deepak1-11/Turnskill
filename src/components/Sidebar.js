@@ -49,7 +49,7 @@ function Sidebar() {
                             </div>
                             <div >
                                 <MdPhotoCamera  />&nbsp;
-                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}}  to="/usersetting"><div className="nav--links">Settings</div></Link>
+                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}}  to="/editprofile"><div className="nav--links">Settings</div></Link>
                             </div>
                             <div>
                             <span style={{fontSize:"12px",textDecoration:"none",color:"grey"}}onClick={handleSignOut}><div className="nav--links">SignOut</div></span>
