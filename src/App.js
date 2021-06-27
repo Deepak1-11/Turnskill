@@ -20,7 +20,7 @@ import { darkTheme, lightTheme, selectTheme } from './features/themeSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
-import VideoPage from './components/videoComponents/VideoPage';
+
 
 
 function App() {
@@ -109,24 +109,25 @@ function App() {
 
                 </Route>
                 <Route path="/courses"> 
-                  <Col lg={10} style={{padding:"0"}}><Courses/></Col>
+                 {user? <Col lg={10} style={{padding:"0"}}><Courses/></Col>:<Newuser/>}
                 </Route>
                 <Route exact path="/live-sessions"> 
-                  <Col lg={10} style={{padding:"0"}}><LiveSessions/></Col>                
+                  {user?<Col lg={10} style={{padding:"0"}}><LiveSessions/></Col>:<Newuser/>}                
                 </Route>
-                <Route path="/videodisplay" component={VideoPage}/> 
+                <Route path="/videodisplay" > 
+                {user?<Col lg={10} style={{padding:"0"}}><VideoPage/></Col>:<Newuser/>}           
+                </Route>
                 <Route path="/1-1">
-                  <Col lg={10} style={{padding:"0"}}><Onetwoone/></Col>
+                  {user?<Col lg={10} style={{padding:"0"}}><Onetwoone/></Col>:<Newuser/>}   
                 </Route>
                 <Route exact path="/usersetting">
-                  <Col lg={10} style={{padding:"0"}}><UserSetting/></Col>
+                  {user?<Col lg={10} style={{padding:"0"}}><UserSetting/></Col>:<Newuser/>}   
                 </Route>
                 <Route path="/register">
-                  <Col lg={0} style={{padding:"0"}}><Signup/></Col>
+                <Col lg={0} style={{padding:"0"}}><Signup/></Col>
                 </Route>
                 <Route path="/login">
-                  <Col lg={10} style={{padding:"0"}}><SignIn/></Col>
-
+                <Col lg={10} style={{padding:"0"}}><SignIn/></Col>
                 </Route>     
                 <Route path="/adminaccount">
                   <Col lg={10} style={{padding:"0"}}><AdminFirstPage/></Col>
