@@ -31,27 +31,28 @@ function Sidebar() {
                         <div className="menu">
                             <h6>MENU</h6>
                             <div  >
+                            
                                 <MdPublic />&nbsp;
-                                <Link style={{fontSize:"50%"}} style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}} to="/">Dashboard</Link>
+                                <Link  style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}} to="/"><div style={{width:"100%"}}><div className="nav--links">Dashboard</div></div></Link>
                             </div>
                             <div >
                                 <MdVideocam />&nbsp;
-                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}} to ="/live-sessions">Live Sessions</Link>
+                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}} to ="/live-sessions"><div className="nav--links">Live Sessions</div></Link>
                             </div>
                             <div >
                                 < MdAndroid/>&nbsp;
-                                <Link  style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}} to="/1-1">1-1 Sessions</Link>
+                                <Link  style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}} to="/1-1"><div className="nav--links">1-1 Sessions</div></Link>
                             </div>
                             <div >
                                 <MdAirplay />&nbsp;
-                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}}  to="/courses"> My Courses</Link>
+                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}}  to="/courses"> <div className="nav--links">My Courses</div></Link>
                             </div>
                             <div >
                                 <MdPhotoCamera  />&nbsp;
-                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}}  to="/usersetting"> Settings</Link>
+                               <Link style={{color:theme.color,fontSize:"12px",textDecoration:"none",color:"grey"}}  to="/usersetting"><div className="nav--links">Settings</div></Link>
                             </div>
                             <div>
-                            <span style={{fontSize:"12px",textDecoration:"none",color:"grey"}}onClick={handleSignOut}>SignOut</span>
+                            <span style={{fontSize:"12px",textDecoration:"none",color:"grey"}}onClick={handleSignOut}><div className="nav--links">SignOut</div></span>
                            
                            </div>
                            
