@@ -8,8 +8,10 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+
 import { useHistory } from "react-router-dom";
 import { columns,rows } from './LiveSessionData';
+
 
 const useStyles = makeStyles({
   root: {
@@ -20,10 +22,14 @@ const useStyles = makeStyles({
   },
 });
 
+
 export default function StickyHeadTable() {
+
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -33,7 +39,9 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
   let history = useHistory();
+
   const handleRowClick = () => {
     history.push("/videodisplay");
   };
@@ -58,11 +66,13 @@ export default function StickyHeadTable() {
           <TableBody>
             {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
               return (
+
                 <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
                   {columns.map((column) => {
                     const value = row[column.id];
                     return (
                       <TableCell key={column.id} align={column.align} onClick={handleRowClick}>
+
                         {column.format && typeof value === 'number' ? column.format(value) : value}
                       </TableCell>
                     );

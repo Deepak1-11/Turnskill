@@ -1,0 +1,76 @@
+.list-bookmarks{
+    text-align: left;
+}
+.list-bookmarks button {
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    color: #08c;
+  }
+  .list-bookmarks button:hover {
+    color: #04c;
+  }
+
+  .list-bookmarks-note button {
+    color: red;
+  
+  }
+
+  .list-bookmarks-header{
+      display: flex;
+      justify-content:space-between; 
+  }
+
+  .list-bookmarks-note{
+      margin-bottom: 10px;
+  }
+  .list-bookmarks-note-title{
+    display: flex;
+    justify-content:space-between;
+    background-color: rgb(235, 232, 232);
+    color: black;
+  }
+
+  .list-bookmarks-note p {
+    margin: 10px 0;
+  }
+  .list-bookmarks-note small {
+    display: block;
+    color: rgb(119, 118, 118);
+  }
+  
+  /* .list-bookmarks-note:hover {
+    background: #ddd;
+  } */
+  .list-bookmarks-oneentry:hover{
+    background: rgb(216, 171, 171);
+  }
+
+  .list-bookmarks-note.active{
+  background: rgb(216, 171, 171);
+  color: black;
+}
+.list-bookmarks-note.active small {
+  color: rgb(119, 118, 118);
+}
+.edit-bookmark{
+  text-align: left;
+}
+.edit-bookmark textarea {
+  border: 1px solid rgb(37, 17, 17);
+  margin-bottom: 20px;
+  width: 100%;
+  resize: none;
+  font-size: inherit;
+  font-family: inherit;
+ 
+}
+
+.edit-bookmark-title{
+  display: flex;
+  justify-content:space-between; 
+}

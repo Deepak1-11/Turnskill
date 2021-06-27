@@ -4,9 +4,7 @@
   box-sizing: border-box; 
 }
 
-.App{
-  padding-bottom: 30px;
-}
+
 
 a{
   color:black;
@@ -17,6 +15,6 @@ a{
 position:absolute;
 top:20px;
 right:20px;
-z-index:55;
+z-index:555;
 }
 

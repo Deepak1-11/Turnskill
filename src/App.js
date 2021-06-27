@@ -20,6 +20,7 @@ import { darkTheme, lightTheme, selectTheme } from './features/themeSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
+import VideoPage from './components/videoComponents/VideoPage';
 
 
 function App() {
@@ -82,6 +83,7 @@ function App() {
 
    <div className="App">
     <div  style={{backgroundColor:`${theme.background__color}`, color:theme.color,}} >
+
       <div className="theme__toggler">
         {
         theme.theme_type==="dark"?  
@@ -132,6 +134,8 @@ function App() {
                 </Route>           
               </Switch>
       </Router>
+
+
      </Row>
      </Container>
     </div>
