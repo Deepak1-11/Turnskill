@@ -10,7 +10,6 @@ import SignIn from './components/SignIn';
 import Sidebar from './components/Sidebar';
 import Newuser from './components/Newuser';
 import Feedback from './components/FormTemplate/Feedback';
-import UserSetting from './components/FormTemplate/UserSetting';
 import AdminFirstPage from './components/adminAccount/AdminFirstPage';
 import { useEffect } from 'react';
 import { auth } from './components/Firebase';
@@ -20,6 +19,7 @@ import { darkTheme, lightTheme, selectTheme } from './features/themeSlice';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Container, Row } from "react-bootstrap";
 import Button from 'react-bootstrap/Button'
+import EditProfile from './components/EditProfileComponent/EditProfile';
 
 
 
@@ -120,8 +120,8 @@ function App() {
                 <Route path="/1-1">
                   {user?<Col lg={10} style={{padding:"0"}}><Onetwoone/></Col>:<Newuser/>}   
                 </Route>
-                <Route exact path="/usersetting">
-                  {user?<Col lg={10} style={{padding:"0"}}><UserSetting/></Col>:<Newuser/>}   
+                <Route path="/editprofile">
+                  <EditProfile  />
                 </Route>
                 <Route path="/register">
                 <Col lg={0} style={{padding:"0"}}><Signup/></Col>
