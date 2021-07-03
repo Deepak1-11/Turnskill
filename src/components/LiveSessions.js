@@ -1,4 +1,49 @@
-import './LiveSessions.css';
+import React, { useEffect, useState } from "react";
+import db from "./Firebase";
+import SessionCard from "./SessionCard";
+
+function LiveSessions() {
+  const [sessions, setSessions] = useState([]);
+
+  useEffect(() => {
+    db.collection("courses").onSnapshot((snapshot) =>
+      setSessions(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          videotitle: doc.data().videotitle,
+          courseid: doc.data().courseid,
+          url: doc.data().url,
+          timestamp: doc.data().timestamp,
+          type: doc.data().type,
+          speaker:doc.data().speaker,
+          rating:doc.data().rating
+        }))
+      )
+    );
+  }, []);
+
+  console.log(sessions);
+  return (
+    <div className="livesessions">
+      {sessions.map((session) => (
+        <SessionCard
+          key={session.id}
+          title={session.videotitle}
+          courseid={session.courseid}
+          url={session.url}
+          time={session.timestamp}
+          type={session.type}
+          speaker={session.speaker}
+          rating={session.rating}
+        />
+      ))}
+    </div>
+  );
+}
+
+export default LiveSessions;
+
+/*import './LiveSessions.css';
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -42,4 +87,4 @@ const LiveSessions = ()  => {
 }
  
 
-export default LiveSessions;
+export default LiveSessions;*/
