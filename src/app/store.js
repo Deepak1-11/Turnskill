@@ -2,6 +2,7 @@
 import userReducer from '../features/userSlice';
 import themeReducer from '../features/themeSlice';
 import videoReducer from '../features/videoSlice';
+import sessionReducer from '../features/sessionSlice';
 
 import {createStore , combineReducers}  from 'redux';
 
@@ -51,7 +52,8 @@ const rootReducer =  combineReducers({
 
   user:userReducer,
   theme:themeReducer,
-  video:videoReducer
+  video:videoReducer,
+  session:sessionReducer
   
   
 });

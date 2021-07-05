@@ -1,10 +1,13 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 import './AdminFormPageStyle.css';
+import db from '../Firebase';
+import { useSelector } from 'react-redux';
+import { selectSession } from '../../features/sessionSlice';
 const useStyles = makeStyles({
     
   root: {
@@ -17,7 +20,24 @@ const useStyles = makeStyles({
   },
   });
 const LiveSessionPage = () => {
+
+  const [users, setUsers] = useState([]);
+
+  const sessions = useSelector(selectSession);
+  useEffect(() => {
+    db.collection("users").onSnapshot((snapshot) =>
+      setUsers(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data:doc.data()
+         
+        }))
+      )
+    );
+  }, []);
     const classes = useStyles();
+
+    console.log(sessions);
     return (
        <>
           
@@ -34,19 +54,19 @@ const LiveSessionPage = () => {
    <table>
      <tr>
        <td><label>Total Users Registered</label></td>
-       <td>5</td>
+       <td>{users.length}</td>
      </tr>
      <tr>
        <td><label>Total Live Session Recordings</label></td>
-       <td>2</td>
+       <td>{sessions.livecount}</td>
      </tr>
      <tr>
        <td><label>Total 1-1 Session Recordings</label></td>
-       <td>3</td>
+       <td>{sessions.privatecount}</td>
      </tr>
      <tr>
        <td><label>Total Courses Uploaded</label></td>
-       <td>4</td>
+       <td>{sessions.livecount+sessions.privatecount}</td>
      </tr>
      
    </table>

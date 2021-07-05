@@ -289,6 +289,8 @@ function VideoPage() {
 
   const videourl = useSelector(selectVideo);
 
+  console.log(videourl.url);
+
   return (
     <>
       <Container maxWidth="md">

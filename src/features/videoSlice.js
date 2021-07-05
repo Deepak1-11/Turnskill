@@ -3,8 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   video: {
-      url:"https://youtu.be/jD_pblIYW1w",
-      title:"The Art of being Yourself"
+      url:"https://youtu.be/pRWD-YpseSU",
+      title:"Obsession with speed"
   }
   
 };

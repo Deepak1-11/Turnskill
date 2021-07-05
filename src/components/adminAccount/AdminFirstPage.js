@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -26,6 +26,9 @@ import AdminViewFeedback from './AdminViewFeedback';
 import FormPage from './AdminSetting';
 import UploadVideo from './AdminUploadVideo';
 import { Public } from "@material-ui/icons";
+import { totalSessions } from "../../features/sessionSlice";
+import db from "../Firebase";
+import { useDispatch } from "react-redux";
 const drawerWidth = 240;
 
 const sidebarData = [
@@ -76,6 +79,36 @@ function ResponsiveDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [live, setLive] = useState([]);
+  const [psession, setPrivate] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    db.collection("livesessions").onSnapshot((snapshot) =>
+      setLive(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data:doc.data()
+         
+        }))
+      )
+    );
+
+    db.collection("privatesessions").onSnapshot((snapshot) =>
+    setPrivate(
+      snapshot.docs.map((doc) => ({
+        id: doc.id,
+        data:doc.data()
+       
+      }))
+    )
+  )
+  
+  
+  
+  }, []);
+
+
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -99,6 +132,16 @@ function ResponsiveDrawer(props) {
     </div>
   );
 
+  dispatch(
+    totalSessions({
+      livecount:live.length,
+      privatecount:psession.length
+
+    })
+  )
+
+  console.log(live.length);
+  console.log(psession);
   return (
     <div className={classes.root}>
       <CssBaseline />

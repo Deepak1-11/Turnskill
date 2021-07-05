@@ -32,7 +32,10 @@ const LiveSessionPage = () => {
 
   const handleUpload = () => {
     if (url && videotitle && courseid && type)
-      db.collection("courses")
+    {
+
+     
+      db.collection(type==="Live Session"?"livesessions":"privatesessions")
         .add({
           videotitle: videotitle,
           courseid: courseid,
@@ -52,6 +55,8 @@ const LiveSessionPage = () => {
         .then(history.push("/adminaccount"))
 
         .catch((err) => alert(err.message));
+
+      }
     else 
     alert("Please fill all details");
   };

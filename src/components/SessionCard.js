@@ -1,9 +1,12 @@
 import React from "react";
 import "./SessionCard.css";
 import StarIcon from "@material-ui/icons/Star";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { videoIn } from "../features/videoSlice";
 import { Link } from "react-router-dom";
+import db from "./Firebase";
+import firebase from "firebase";
+import { selectUser } from "../features/userSlice";
 
 function SessionCard({
   key,
@@ -14,11 +17,13 @@ function SessionCard({
   type,
   speaker,
   rating,
+  coursecard
 }) {
   const dispatch = useDispatch();
   const newurl = `https://img.youtube.com/vi/${url}/0.jpg`;
 
   const videourl = `https://youtu.be/${url}`;
+  const user = useSelector(selectUser);
 
   let rating1 = [];
 
@@ -37,6 +42,22 @@ function SessionCard({
       })
     );
   };
+
+  const handleCourseIn = ()=>{
+
+    db.collection("courses").doc(user.uid).collection("mycourses")
+    .add({
+      videotitle: title,
+      courseid: courseid,
+      url: url,
+       timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+      type: type,
+      speaker:speaker,
+      rating:rating
+    })
+
+
+  }
   return (
     <Link style={{ textDecoration: "none" }} to="/videodisplay">
       <div className="sessioncard" onClick={handleVideo}>
@@ -44,9 +65,9 @@ function SessionCard({
 
         <div className="card__desc">
           <div className="card__title">
-            <h3>
+            <h4>
               <strong> {title}</strong>
-            </h3>
+            </h4>
             <div className="card__rating">
               <h6>
                 {rating1.map((star) => (
@@ -56,9 +77,12 @@ function SessionCard({
             </div>
           </div>
           <div className="card__details">
-            <h4>{type}</h4>
-            <h4>{key}</h4>
-            <h4>{speaker}</h4>
+            <h5>{type}</h5>
+            
+            <div className="enroll_div">
+            <h5>{speaker}</h5>
+          {!coursecard?  <button className="enrollnow" onClick={handleCourseIn}>Add to list</button>:<button className="enrollnow" >Watch Now</button>}
+            </div>
           </div>
         </div>
       </div>

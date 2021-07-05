@@ -6,7 +6,7 @@ function LiveSessions() {
   const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
-    db.collection("courses").onSnapshot((snapshot) =>
+    db.collection("livesessions").onSnapshot((snapshot) =>
       setSessions(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -24,7 +24,7 @@ function LiveSessions() {
 
   console.log(sessions);
   return (
-    <div className="livesessions">
+    <div className="livesession" style={{display:'flex',width:"100%",flexWrap:"wrap"}}>
       {sessions.map((session) => (
         <SessionCard
           key={session.id}

@@ -1,9 +1,10 @@
 .sessioncard {
   background: linear-gradient(rgb(158, 146, 146), rgb(170, 94, 94));
-  width: 500px;
-  height: 350px;
+  width: 480px;
+  height: 360px;
   margin: 5px;
   color: whitesmoke;
+
 
   border-radius: 10px;
   margin: 10px;
@@ -27,4 +28,30 @@
 
 .card__details {
   margin: 10px;
+  margin-bottom: 20px;
+  width:90%;
+}
+
+.enrollnow{
+  width:120px;
+  height:30px;
+  background-color: rgb(240, 56, 56);
+  outline:none;
+  text-decoration: none;
+  border:none;
+  border-radius:10px;
+  COLOR:whitesmoke;
+  
+}
+.enroll_div{
+  display:flex;
+  width:100%;
+  justify-content: space-between;
+}
+
+.enrollnow:hover{
+  background-color: rgb(250, 193, 193);
+  color:black;
+
+
 }

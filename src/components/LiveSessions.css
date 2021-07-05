@@ -1,6 +1,7 @@
-.livesessions{
-    display:flex;
-  
-    flex-wrap:wrap;
-    margin-top:50px;
+.livesession{
+  display:flex;
+  width:100%;
+  flex-wrap:wrap;
+  background-color: aqua;
+
 }
