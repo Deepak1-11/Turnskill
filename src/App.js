@@ -121,7 +121,7 @@ function App() {
                   {user?<Col lg={10} style={{padding:"0"}}><Onetwoone/></Col>:<Newuser/>}   
                 </Route>
                 <Route path="/editprofile">
-                  <EditProfile  />
+                  {user?<EditProfile  />:<Newuser/>}
                 </Route>
                 <Route path="/register">
                 <Col lg={0} style={{padding:"0"}}><Signup/></Col>
