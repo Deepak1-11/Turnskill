@@ -9,7 +9,6 @@ import firebase from "firebase";
 import { selectUser } from "../features/userSlice";
 
 function SessionCard({
-  key,
   title,
   courseid,
   url,
@@ -17,7 +16,7 @@ function SessionCard({
   type,
   speaker,
   rating,
-  coursecard
+  coursecard,
 }) {
   const dispatch = useDispatch();
   const newurl = `https://img.youtube.com/vi/${url}/0.jpg`;
@@ -26,13 +25,14 @@ function SessionCard({
   const user = useSelector(selectUser);
 
   let rating1 = [];
+  let rate = rating;
 
-  while (rating > 0) {
+  while (rate > 0) {
     rating1.push("star");
-    rating--;
+    rate--;
   }
 
-  console.log(title);
+ 
 
   const handleVideo = () => {
     dispatch(
@@ -43,21 +43,19 @@ function SessionCard({
     );
   };
 
-  const handleCourseIn = ()=>{
+  const handleCourseIn = () => {
+    db.collection("courses").doc(user.uid).collection("mycourses").add({
 
-    db.collection("courses").doc(user.uid).collection("mycourses")
-    .add({
+     
       videotitle: title,
       courseid: courseid,
       url: url,
-       timestamp:firebase.firestore.FieldValue.serverTimestamp(),
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       type: type,
-      speaker:speaker,
-      rating:rating
-    })
-
-
-  }
+      speaker: speaker,
+      rating: rating,
+    });
+  };
   return (
     <Link style={{ textDecoration: "none" }} to="/videodisplay">
       <div className="sessioncard" onClick={handleVideo}>
@@ -78,10 +76,16 @@ function SessionCard({
           </div>
           <div className="card__details">
             <h5>{type}</h5>
-            
+
             <div className="enroll_div">
-            <h5>{speaker}</h5>
-          {!coursecard?  <button className="enrollnow" onClick={handleCourseIn}>Add to list</button>:<button className="enrollnow" >Watch Now</button>}
+              <h5>{speaker}</h5>
+              {!coursecard ? (
+                <button className="enrollnow" onClick={handleCourseIn}>
+                  Add to list
+                </button>
+              ) : (
+                <button className="enrollnow">Watch Now</button>
+              )}
             </div>
           </div>
         </div>

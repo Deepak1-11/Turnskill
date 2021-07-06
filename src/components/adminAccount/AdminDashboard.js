@@ -37,7 +37,7 @@ const LiveSessionPage = () => {
   }, []);
     const classes = useStyles();
 
-    console.log(sessions);
+  
     return (
        <>
           

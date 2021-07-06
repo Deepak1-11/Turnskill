@@ -1,70 +1,41 @@
+import userReducer from "../features/userSlice";
+import themeReducer from "../features/themeSlice";
+import videoReducer from "../features/videoSlice";
+import sessionReducer from "../features/sessionSlice";
 
-import userReducer from '../features/userSlice';
-import themeReducer from '../features/themeSlice';
-import videoReducer from '../features/videoSlice';
-import sessionReducer from '../features/sessionSlice';
+import { createStore, combineReducers } from "redux";
 
-import {createStore , combineReducers}  from 'redux';
-
-function saveToLocalStorage(state){
-
-
-  try{
-
+function saveToLocalStorage(state) {
+  try {
     const serializedState = JSON.stringify(state);
-    localStorage.setItem('state',serializedState)
-
-  }catch(e){
-
+    localStorage.setItem("state", serializedState);
+  } catch (e) {
     console.log(e);
-
-
-
-
   }
 }
 
-function loadFromLocalStorage(){
+function loadFromLocalStorage() {
+  try {
+    const serializedState = localStorage.getItem("state");
+    if (serializedState == null) return undefined;
 
-try{
-  const serializedState = localStorage.getItem('state');
-  if(serializedState==null)
-  return undefined;
+    return JSON.parse(serializedState);
+  } catch (e) {
+    console.log(e);
 
-  return JSON.parse(serializedState);
-
-}catch(e){
-  console.log(e);
-
-  return undefined;
-
-
+    return undefined;
+  }
 }
-
-
-}
-
 
 const persistedState = loadFromLocalStorage();
 
-const rootReducer =  combineReducers({
- 
-
-  user:userReducer,
-  theme:themeReducer,
-  video:videoReducer,
-  session:sessionReducer
-  
-  
+const rootReducer = combineReducers({
+  user: userReducer,
+  theme: themeReducer,
+  video: videoReducer,
+  session: sessionReducer,
 });
 
+export const store = createStore(rootReducer, persistedState);
 
-export  const store = createStore(
-  rootReducer,
-  persistedState,
-)
-
-store.subscribe(()=>saveToLocalStorage(store.getState()))
-
-
-
+store.subscribe(() => saveToLocalStorage(store.getState()));

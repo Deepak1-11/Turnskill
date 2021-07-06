@@ -140,8 +140,7 @@ function ResponsiveDrawer(props) {
     })
   )
 
-  console.log(live.length);
-  console.log(psession);
+  
   return (
     <div className={classes.root}>
       <CssBaseline />

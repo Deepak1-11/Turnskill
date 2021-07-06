@@ -22,7 +22,7 @@ function LiveSessions() {
     );
   }, []);
 
-  console.log(sessions);
+  
   return (
     <div className="livesession" style={{display:'flex',width:"100%",flexWrap:"wrap"}}>
       {sessions.map((session) => (

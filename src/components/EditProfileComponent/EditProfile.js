@@ -1,6 +1,5 @@
 
 import { useState } from "react";
-import Homepage from "../Homepage";
 import PersonalDetails from "./PersonalDetails";
 import ProfilePic from "./ProfilePic";
 

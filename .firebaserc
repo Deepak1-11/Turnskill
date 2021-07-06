@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "turnskill-f2683"
+    "default": "turnskill-f2683",
+    "turnskill": "turnskill-a4e36"
   }
 }
