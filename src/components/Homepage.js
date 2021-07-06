@@ -5,6 +5,8 @@ import { MdDescription } from "react-icons/md";
 import { DiCodeigniter } from "react-icons/di";
 import bill from "../assets/bill.jpg";
 import { BsX } from "react-icons/bs";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/userSlice";
 
 function Homepage() {
   var range = document.querySelector("#range"),
@@ -21,6 +23,9 @@ function Homepage() {
   //     percent.innerHTML= this.value + "%";
   // }
 
+  const user = useSelector(selectUser);
+  
+
   return (
     <div className="homepage">
       <div className="dashboard">
@@ -36,12 +41,12 @@ function Homepage() {
             <div>
               <span>Dashboard</span>
               <span>
-                Hi Bill ! We help you to prioritize your task and attention.
+                Hi {user.email}! We help you to prioritize your task and attention.
               </span>
             </div>
             <div>
               <img style={{ cursor: "pointer" }} src={bill}></img>
-              <span style={{ whiteSpace: "nowrap" }}>Bill Gates</span>
+              <span style={{ whiteSpace: "nowrap" }}>{user.email}</span>
             </div>
           </div>
 
@@ -121,7 +126,7 @@ function Homepage() {
                   My Profile
                 </span>
                 <span style={{ fontSize: "0.9rem,", color: "rgb(70, 70, 70)" }}>
-                  Bill Gates
+                 {user.email}
                 </span>
               </div>
               <div className="intro">

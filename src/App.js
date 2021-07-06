@@ -124,15 +124,7 @@ function App() {
                     <Newuser />
                   )}
                 </Route>
-                <Route path="/feedback">
-                {user ? (
-                  <Col lg={10} style={{ padding: "0" }}>
-                   <Feedback1/>
-                  </Col>
-                ) : (
-                  <Newuser />
-                )}
-              </Route>
+              
                 <Route path="/1-1">
                   {user ? (
                     <Col lg={10} style={{ padding: "0" }}>

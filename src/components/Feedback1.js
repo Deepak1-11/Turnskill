@@ -113,7 +113,8 @@ function Feedback1() {
       userid: user.email,
       sentiment_score: score * 100,
       feedback: text,
-    });
+    }).then(setScore(""))
+    .catch(err=>alert(err.message));
 
     return score;
   };
