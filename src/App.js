@@ -20,6 +20,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import EditProfile from "./components/EditProfileComponent/EditProfile";
+import Feedback1 from './components/Feedback1'
 
 function App() {
   const dispatch = useDispatch();
@@ -123,6 +124,15 @@ function App() {
                     <Newuser />
                   )}
                 </Route>
+                <Route path="/feedback">
+                {user ? (
+                  <Col lg={10} style={{ padding: "0" }}>
+                   <Feedback1/>
+                  </Col>
+                ) : (
+                  <Newuser />
+                )}
+              </Route>
                 <Route path="/1-1">
                   {user ? (
                     <Col lg={10} style={{ padding: "0" }}>

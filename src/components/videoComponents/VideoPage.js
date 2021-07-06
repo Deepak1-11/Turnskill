@@ -18,7 +18,7 @@ import ListOfBookmark from "../bookmarkComponents/ListOfBookmark";
 import EditBookmark from "../bookmarkComponents/EditBookmark";
 import "../bookmarkComponents/BookmarkStyle.css";
 import "./VideoPageStyle.css";
-import FeedbackForm from "../FormTemplate/Feedback";
+import Feedback1 from "../Feedback1";
 import { useSelector } from "react-redux";
 import { selectVideo } from "../../features/videoSlice";
 
@@ -396,7 +396,7 @@ function VideoPage() {
             </TabPanel>
 
             <TabPanel value={value} index={3}>
-              <FeedbackForm />
+              <Feedback1 />
             </TabPanel>
             <TabPanel value={value} index={4}>
               Following are the details of the video
